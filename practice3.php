@@ -1,5 +1,7 @@
 <?php
-
+if (file_exists('output.php')) {
+    include 'output.php';
+}
 
 // if ($output == 1) { // Use == for comparison
 //     include "output.php";
@@ -14,9 +16,15 @@ $readline = readline("Please press the following for:\n"
     . "5. View savings or loss\n"
     . "6.View income expense as per category");
 
+if ($readline == 1) {
+    include 'income.php';
+}
+if ($readline == 2) {
+    include 'expense.php';
+}
 if ($readline == 3) {
-    include "output.php";
-    $income = array_values($phpCodeArray["income"]);
+
+    $income = array_values($IncomenExpense["income"]);
     echo array_sum($income);
 
 
@@ -24,17 +32,17 @@ if ($readline == 3) {
 }
 
 if ($readline == 4) {
-    include "output.php";
-    $expense = array_values($phpCodeArray["expense"]);
+
+    $expense = array_values($IncomenExpense["expense"]);
     $total_expense = array_sum($expense);
     echo $total_expense;
     exit();
 }
 if ($readline == 5) {
-    include "output.php";
 
-    $income = array_values($phpCodeArray["income"]);
-    $expense = array_values($phpCodeArray["expense"]);
+
+    $income = array_values($IncomenExpense["income"]);
+    $expense = array_values($IncomenExpense["expense"]);
     $total_income = array_sum($income);
     $total_expenses = array_sum($expense);
 
@@ -43,10 +51,10 @@ if ($readline == 5) {
     exit();
 }
 if ($readline == 5) {
-    include "output.php";
 
-    $income = array_values($phpCodeArray["income"]);
-    $expense = array_values($phpCodeArray["expense"]);
+
+    $income = array_values($IncomenExpense["income"]);
+    $expense = array_values($IncomenExpense["expense"]);
     $total_income = array_sum($income);
     $total_expenses = array_sum($expenses);
 
@@ -56,9 +64,9 @@ if ($readline == 5) {
 }
 
 if ($readline == 6) {
-    include "output.php";
 
-    foreach ($phpCodeArray as $key => $value) {
+
+    foreach ($IncomenExpense as $key => $value) {
 
         echo $key . PHP_EOL;
         foreach ($value as $k => $v) {
