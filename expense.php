@@ -39,9 +39,23 @@ while ($category !== 'exit') {
     }
 
 
-    echo "Data has been updated for $category." . PHP_EOL;
+    // echo "Data has been updated for $category." . PHP_EOL;
 
     echo "Select a category (Rent/Utility/InternetBill) or type 'exit' to finish: ";
+
+    $file = fopen($phpFilePath, "w");
+
+    if ($file) {
+        // Write the updated categories associative array to the PHP file
+        fwrite($file, "<?php\n\$IncomenExpense= " . var_export($categories, true) . ";\n?>");
+
+        // Close the PHP file
+        fclose($file);
+
+        echo "Data has been updated in $phpFilePath." . PHP_EOL;
+    } else {
+        echo "Failed to open the PHP file for writing." . PHP_EOL;
+    }
     $category = trim(fgets(STDIN));
 
     if (!in_array($category, ['Rent', 'Utility', 'InternetBill']) && $category !== 'exit') {
@@ -51,16 +65,3 @@ while ($category !== 'exit') {
 }
 
 // Open the PHP file for writing
-$file = fopen($phpFilePath, "w");
-
-if ($file) {
-    // Write the updated categories associative array to the PHP file
-    fwrite($file, "<?php\n\$IncomenExpense= " . var_export($categories, true) . ";\n?>");
-
-    // Close the PHP file
-    fclose($file);
-
-    echo "Data has been updated in $phpFilePath." . PHP_EOL;
-} else {
-    echo "Failed to open the PHP file for writing." . PHP_EOL;
-}
