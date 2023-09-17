@@ -1,26 +1,17 @@
 <?php
 if (file_exists('output.php')) {
-    include 'output.php';
+    require_once 'output.php';
 }
 
-// if ($output == 1) { // Use == for comparison
-//     include "output.php";
+require_once 'readline.php';
 
-//     var_dump($phpCodeArray);
-// }
-$readline = readline("Please press the following for:\n"
-    . "1. For adding income\n"
-    . "2. For adding expense\n"
-    . "3. View Total income\n"
-    . "4. View Total expense\n"
-    . "5. View savings or loss\n"
-    . "6.View income expense as per category");
+
 
 if ($readline == 1) {
-    include 'income.php';
+    require_once 'income.php';
 }
 if ($readline == 2) {
-    include 'expense.php';
+    require_once 'expense.php';
 }
 if ($readline == 3) {
 
@@ -47,7 +38,20 @@ if ($readline == 5) {
     $total_expenses = array_sum($expense);
 
     $savingsorLoss = $total_income - $total_expenses;
-    echo $savingsorLoss;
+    switch (true) {
+        case ($savingsorLoss > 0):
+            echo "You have a savings of $savingsorLoss";
+            break;
+        case ($savingsorLoss == 0):
+            echo "Your income and expenses are the same: $savingsorLoss";
+            break;
+        case ($savingsorLoss < 0):
+            //Convert the negative value to positive
+            $negativeToPositive = abs($savingsorLoss);
+            echo "Your expenses exceed your income by $negativeToPositive";
+            break;
+    }
+
     exit();
 }
 if ($readline == 5) {
