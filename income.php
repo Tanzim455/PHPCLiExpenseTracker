@@ -23,7 +23,9 @@ if (!in_array($category, ['Salary', 'Investments']) && $category !== 'exit') {
     echo "Invalid category. Please enter 'Salary' or 'Investments'." . PHP_EOL;
     exit;
 }
-
+if ($category == 'exit') {
+    exit();
+}
 while ($category !== 'exit') {
     // Prompt for the amount
     echo "Enter the amount for $category: ";
