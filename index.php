@@ -79,3 +79,6 @@ if ($readline == 6) {
     }
     exit();
 }
+if ($readline == 7) {
+    exit();
+}
