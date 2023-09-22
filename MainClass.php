@@ -5,6 +5,9 @@ if (file_exists('output.php')) {
 require_once 'Menu.php';
 require_once 'MenuNumbers.php';
 require_once 'IncomeClass.php';
+require_once 'ExpenseClass.php';
+require_once  'SavingsOrLoss.php';
+require_once  'Category.php';
 class MainClass
 {
     // public function __construct(IncomeClass $incomeClass)
@@ -35,16 +38,16 @@ class MainClass
             }
 
             if ($readline == MenuNumbers::Four) {
-                $incomeClass = new IncomeClass();
-                echo $incomeClass->totalExpense();
+                $expenseClass = new ExpenseClass();
+                echo $expenseClass->totalExpense();
             }
             if ($readline == MenuNumbers::Five) {
-                $incomeClass = new IncomeClass();
-                echo $incomeClass->totalSavingsorLoss();
+                $savingsOrLoss = new SavingsorLoss();
+                echo $savingsOrLoss->totalSavingsorLoss();
             }
             if ($readline == MenuNumbers::Six) {
-                $incomeClass = new IncomeClass();
-                echo $incomeClass->IncomeExpensePerCategory();
+                $category = new Category();
+                $category->IncomeExpensePerCategory();
             }
             if ($readline == MenuNumbers::Seven) {
                 exit();
