@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
-class AddExpense
+class AddExpense implements Transaction
 {
     public array $categories = [
         'income' => [],
@@ -52,7 +52,7 @@ class AddExpense
         echo "Enter the amount for $this->category: ";
         $this->amount = floatval(trim(fgets(STDIN)));
         // Check if the category exists in the associative array
-        if (!isset($this->categories['income'][$this->category])) {
+        if (!isset($this->categories['expense'][$this->category])) {
             // If not, initialize it to the entered amount
             $this->categories['expense'][$this->category] = $this->amount;
         } else {

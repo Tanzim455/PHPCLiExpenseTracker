@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
-class AddIncome
+class AddIncome implements Transaction
 {
     public array $categories = [
         'income' => [],
@@ -14,7 +14,7 @@ class AddIncome
     public string $category;
     public   $amount;
     public mixed $file;
-    public function filePathExists()
+    public function filePathExists(): void
     {
         // Check if the PHP file already exists
         if (file_exists($this->phpFilePath)) {
@@ -27,7 +27,7 @@ class AddIncome
             }
         }
     }
-    public function selectCategoriesorFinish()
+    public function selectCategoriesorFinish(): void
     {
         echo "Select a category (Salary/Investments) or type 'exit' to finish: ";
         $this->category = trim(fgets(STDIN));
@@ -40,14 +40,14 @@ class AddIncome
             exit();
         }
     }
-    public function selectCategories()
+    public function selectCategories(): void
     {
         $this->selectCategoriesorFinish();
         if ($this->category == 'exit') {
             exit();
         }
     }
-    public function enterAmountToOutputFile()
+    public function enterAmountToOutputFile(): void
     {
         echo "Enter the amount for $this->category: ";
         $this->amount = floatval(trim(fgets(STDIN)));
@@ -59,7 +59,7 @@ class AddIncome
             $this->categories['income'][$this->category] += $this->amount;
         }
     }
-    public function fileWriting()
+    public function fileWriting(): void
     {
         $this->file = fopen($this->phpFilePath, "w");
         if ($this->file) {
@@ -75,7 +75,7 @@ class AddIncome
         }
     }
 
-    public function addIncome()
+    public function addIncome(): void
     {
         $this->filePathExists();
         $this->selectCategoriesorFinish();
