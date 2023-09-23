@@ -5,6 +5,7 @@
 
 require_once 'vendor/autoload.php';
 
+
 use App\AddIncome;
 use App\App;
 use App\Category;

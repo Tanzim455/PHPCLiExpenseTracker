@@ -70,8 +70,8 @@ class AddIncome
     ];
     public string $phpFilePath = 'output.php';
     public string $category;
-    public string|int $amount;
-    public string $file;
+    public  float $amount;
+    public mixed $file;
     public function filePathExists()
     {
         // Check if the PHP file already exists
@@ -119,6 +119,7 @@ class AddIncome
     }
     public function fileWriting()
     {
+        $this->file = fopen($this->phpFilePath, "w");
         if ($this->file) {
             // Write the updated categories associative array to the PHP file
             fwrite($this->file, "<?php\n\$IncomenExpense= " . var_export($this->categories, true) . ";\n?>");

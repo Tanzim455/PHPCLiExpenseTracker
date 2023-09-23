@@ -6,6 +6,7 @@ namespace App;
 
 require_once 'vendor/autoload.php';
 
+use App\AddIncome;
 use App\Category;
 use App\ExpenseClass;
 use App\IncomeClass;
@@ -28,7 +29,7 @@ class App
     public string  $addIncome;
 
     public function main(
-        AddIncome     $addIncome,
+        AddIncome   $addIncome,
         IncomeClass $incomeClass,
         ExpenseClass $expenseClass,
         SavingsorLoss $savingsOrLoss,
@@ -44,8 +45,9 @@ class App
             $readline = readline("Select an option: ");
 
             if ($readline == MenuNumbers::FIRST) {
-                // require_once 'income.php';
-                echo $addIncome->addIncome();
+                // require_once 'incomesrc.php';
+                $addIncome = new AddIncome();
+                $addIncome->addIncome();
                 break;
             }
             if ($readline == MenuNumbers::Second) {

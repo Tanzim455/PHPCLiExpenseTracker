@@ -10,16 +10,10 @@ class AddIncome
         'income' => [],
         'expense' => []
     ];
-    public string $phpFilePath;
+    public string $phpFilePath = 'output.php';
     public string $category;
-    public float $amount;
-    public  $file;
-
-    public function __construct()
-    {
-        $this->phpFilePath = 'output.php';
-    }
-
+    public   $amount;
+    public mixed $file;
     public function filePathExists()
     {
         // Check if the PHP file already exists
@@ -60,13 +54,14 @@ class AddIncome
         // Check if the category exists in the associative array
         if (!isset($this->categories['income'][$this->category])) {
             // If not, initialize it to the entered amount
-            $categories['income'][$this->category] = $this->amount;
+            $this->categories['income'][$this->category] = $this->amount;
         } else {
             $this->categories['income'][$this->category] += $this->amount;
         }
     }
     public function fileWriting()
     {
+        $this->file = fopen($this->phpFilePath, "w");
         if ($this->file) {
             // Write the updated categories associative array to the PHP file
             fwrite($this->file, "<?php\n\$IncomenExpense= " . var_export($this->categories, true) . ";\n?>");

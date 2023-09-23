@@ -19,7 +19,7 @@ while (true) {
         break;
     }
     if ($readline == 2) {
-        require_once 'expense.php';
+        require_once '../expense.php';
         break;
     }
     if ($readline == 3) {
