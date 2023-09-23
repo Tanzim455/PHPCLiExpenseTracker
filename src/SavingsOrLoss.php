@@ -1,4 +1,9 @@
 <?php
+
+declare(strict_types=1);
+
+namespace App;
+
 class SavingsorLoss
 {
     public function totalSavingsorLoss(): string

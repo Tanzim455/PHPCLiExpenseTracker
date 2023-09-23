@@ -1,20 +1,35 @@
 <?php
+
+namespace App;
+
+require_once 'vendor/autoload.php';
+
+use App\Category;
+use App\ExpenseClass;
+use App\IncomeClass;
+use App\Menu;
+use App\MenuNumbers;
+use App\SavingsorLoss;
+
+
+
 if (file_exists('output.php')) {
     require_once 'output.php';
 }
-require_once 'Menu.php';
-require_once 'MenuNumbers.php';
-require_once 'IncomeClass.php';
-require_once 'ExpenseClass.php';
-require_once  'SavingsOrLoss.php';
-require_once  'Category.php';
-class MainClass
+
+class MainClassTwo
 {
-    // public function __construct(IncomeClass $incomeClass)
-    // {
-    // }
-    public function main()
-    {
+    public $category;
+    public $incomeClass;
+    public $expenseClass;
+    public $savingsOrLoss;
+
+    public function main(
+        IncomeClass $incomeClass,
+        ExpenseClass $expenseClass,
+        SavingsorLoss $savingsOrLoss,
+        Category      $category
+    ) {
         while (true) {
             // Display menu options
 
@@ -33,20 +48,20 @@ class MainClass
             }
 
             if ($readline == MenuNumbers::Third) {
-                $incomeClass = new IncomeClass();
+
                 echo $incomeClass->totalIncome();
             }
 
             if ($readline == MenuNumbers::Four) {
-                $expenseClass = new ExpenseClass();
+
                 echo $expenseClass->totalExpense();
             }
             if ($readline == MenuNumbers::Five) {
-                $savingsOrLoss = new SavingsorLoss();
+
                 echo $savingsOrLoss->totalSavingsorLoss();
             }
             if ($readline == MenuNumbers::Six) {
-                $category = new Category();
+
                 $category->IncomeExpensePerCategory();
             }
             if ($readline == MenuNumbers::Seven) {
@@ -55,7 +70,10 @@ class MainClass
         }
     }
 }
+// $mainclass = new MainClass();
+// $incomeClass = new IncomeClass();
+// $expenseClass = new ExpenseClass();
+// $category = new Category();
+// $savingsOrLoss = new SavingsorLoss();
 
-$mainclass = new MainClass();
-
-$mainclass->main();
+// $mainclass->main($incomeClass, $expenseClass, $savingsOrLoss, $category);

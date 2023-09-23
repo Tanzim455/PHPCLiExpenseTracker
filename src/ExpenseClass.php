@@ -1,5 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App;
+
 class ExpenseClass
 {
     public function totalExpense(): string
