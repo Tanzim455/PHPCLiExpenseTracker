@@ -2,8 +2,8 @@
 $IncomenExpense= array (
   'income' => 
   array (
-    'Salary' => 400000.0,
-    'Investments' => 100000.0,
+    'Salary' => 985000.0,
+    'Investments' => 290000.0,
   ),
   'expense' => 
   array (

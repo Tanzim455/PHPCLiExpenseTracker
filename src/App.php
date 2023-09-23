@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
 require_once 'vendor/autoload.php';
@@ -19,16 +21,19 @@ if (file_exists('output.php')) {
 
 class App
 {
-    public $category;
-    public $incomeClass;
-    public $expenseClass;
-    public $savingsOrLoss;
+    public string $category;
+    public string $incomeClass;
+    public string $expenseClass;
+    public string $savingsOrLoss;
+    public string  $addIncome;
 
     public function main(
+        AddIncome     $addIncome,
         IncomeClass $incomeClass,
         ExpenseClass $expenseClass,
         SavingsorLoss $savingsOrLoss,
-        Category      $category
+        Category      $category,
+
     ) {
         while (true) {
             // Display menu options
@@ -39,7 +44,8 @@ class App
             $readline = readline("Select an option: ");
 
             if ($readline == MenuNumbers::FIRST) {
-                require_once 'income.php';
+                // require_once 'income.php';
+                echo $addIncome->addIncome();
                 break;
             }
             if ($readline == MenuNumbers::Second) {

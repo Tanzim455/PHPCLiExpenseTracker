@@ -3,7 +3,7 @@
 if (file_exists('output.php')) {
     require_once 'output.php';
 }
-require_once 'MenuNumbers.php';
+
 
 while (true) {
     // Display menu options
@@ -14,13 +14,15 @@ while (true) {
 
     if ($readline == 1) {
         require_once 'income.php';
+        $income = new AddIncome();
+        echo $income->addIncome();
         break;
     }
     if ($readline == 2) {
         require_once 'expense.php';
         break;
     }
-    if ($readline == MenuNumbers::Third) {
+    if ($readline == 3) {
         $income = array_values($IncomenExpense["income"]);
         echo "Total Income: " . array_sum($income) . "\n";
     }
