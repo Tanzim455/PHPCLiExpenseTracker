@@ -8,8 +8,9 @@ require_once 'vendor/autoload.php';
 
 use App\AddIncome;
 use App\Category;
-use App\ExpenseClass;
-use App\IncomeClass;
+use App\TotalIncome;
+use App\TotalExpense;
+
 use App\Menu;
 use App\MenuNumbers;
 use App\SavingsorLoss;
@@ -30,8 +31,9 @@ class App
 
     public function main(
         AddIncome   $addIncome,
-        IncomeClass $incomeClass,
-        ExpenseClass $expenseClass,
+        AddExpense  $addExpense,
+        TotalIncome $totalIncome,
+        TotalExpense $totalExpense,
         SavingsorLoss $savingsOrLoss,
         Category      $category,
 
@@ -45,24 +47,24 @@ class App
             $readline = readline("Select an option: ");
 
             if ($readline == MenuNumbers::FIRST) {
-                // require_once 'incomesrc.php';
-                $addIncome = new AddIncome();
+
+
                 $addIncome->addIncome();
                 break;
             }
             if ($readline == MenuNumbers::Second) {
-                require_once 'expense.php';
+                $addExpense->addExpense();
                 break;
             }
 
             if ($readline == MenuNumbers::Third) {
 
-                echo $incomeClass->totalIncome();
+                echo $totalIncome->totalIncome();
             }
 
             if ($readline == MenuNumbers::Four) {
 
-                echo $expenseClass->totalExpense();
+                echo $totalExpense->totalExpense();
             }
             if ($readline == MenuNumbers::Five) {
 

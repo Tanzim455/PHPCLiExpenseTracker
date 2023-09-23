@@ -22,7 +22,7 @@ echo "Select a category (Rent/Utility/InternetBill) or type 'exit' to finish: ";
 $category = trim(fgets(STDIN));
 
 if (!in_array($category, ['Rent', 'Utility', 'InternetBill']) && $category !== 'exit') {
-    echo "Invalid category. Please enter 'Salary' or 'Investments'." . PHP_EOL;
+    echo "Invalid category. Please enter Rent,Utility or InternetBills." . PHP_EOL;
     exit;
 }
 if ($category == 'exit') {
