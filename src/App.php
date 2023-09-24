@@ -17,9 +17,7 @@ use App\SavingsorLoss;
 
 
 
-if (file_exists('output.php')) {
-    require_once 'output.php';
-}
+
 
 class App
 {
