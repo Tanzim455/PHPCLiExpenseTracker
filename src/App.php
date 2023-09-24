@@ -23,11 +23,6 @@ if (file_exists('output.php')) {
 
 class App
 {
-    public string $category;
-    public string $incomeClass;
-    public string $expenseClass;
-    public string $savingsOrLoss;
-    public string  $addIncome;
 
     public function main(
         AddIncome   $addIncome,
