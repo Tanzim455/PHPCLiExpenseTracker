@@ -41,36 +41,36 @@ class App
             // Get user input
             $readline = readline("Select an option: ");
 
-            if ($readline == MenuNumbers::FIRST) {
+            switch ($readline) {
+                case MenuNumbers::FIRST:
+                    $addIncome->addIncome();
+                    break;
 
+                case MenuNumbers::SECOND:
+                    $addExpense->addExpense();
+                    break;
 
-                $addIncome->addIncome();
-                break;
-            }
-            if ($readline == MenuNumbers::Second) {
-                $addExpense->addExpense();
-                break;
-            }
+                case MenuNumbers::THIRD:
+                    echo $totalIncome->totalIncome();
+                    break;
 
-            if ($readline == MenuNumbers::Third) {
+                case MenuNumbers::FOUR:
+                    echo $totalExpense->totalExpense();
+                    break;
 
-                echo $totalIncome->totalIncome();
-            }
+                case MenuNumbers::FIVE:
+                    echo $savingsOrLoss->totalSavingsorLoss();
+                    break;
 
-            if ($readline == MenuNumbers::Four) {
+                case MenuNumbers::SIX:
+                    $category->IncomeExpensePerCategory();
+                    break;
 
-                echo $totalExpense->totalExpense();
-            }
-            if ($readline == MenuNumbers::Five) {
-
-                echo $savingsOrLoss->totalSavingsorLoss();
-            }
-            if ($readline == MenuNumbers::Six) {
-
-                $category->IncomeExpensePerCategory();
-            }
-            if ($readline == MenuNumbers::Seven) {
-                exit();
+                case MenuNumbers::SEVEN:
+                    exit();
+                    break;
+                default:
+                    echo "Invalid option. Please select a valid option.\n";
             }
         }
     }

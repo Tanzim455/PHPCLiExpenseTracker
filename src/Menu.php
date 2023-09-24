@@ -7,7 +7,7 @@ namespace App;
 class Menu
 {
     const ADD_INCOME = "1. Add Income\n";
-    const ADD_EXPENSE = "2.Add Expense\n";
+    const ADD_EXPENSE = "2. Add Expense\n";
     const DISPLAY_TOTAL_INCOME = "3. Display Total Income\n";
     const DISPLAY_TOTAL_EXPENSE = "4. Display Total Expenses\n";
     const DISPLAY_SAVINGS_OR_LOSS = "5. Display Savings or Loss\n";

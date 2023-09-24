@@ -7,10 +7,10 @@ namespace App;
 class MenuNumbers
 {
     const FIRST = 1;
-    const Second = 2;
-    const Third = 3;
-    const Four = 4;
-    const Five = 5;
-    const Six = 6;
-    const Seven = 7;
+    const SECOND = 2;
+    const THIRD = 3;
+    const FOUR = 4;
+    const FIVE = 5;
+    const SIX = 6;
+    const SEVEN = 7;
 }
