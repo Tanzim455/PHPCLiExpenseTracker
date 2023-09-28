@@ -1,17 +1,11 @@
 <?php
 
-use App\Menu;
+declare(strict_types=1);
+
+namespace App;
 
 require_once 'vendor/autoload.php';
 
-<<<<<<< HEAD
-class App
-{
-    public function run()
-    {
-        Menu::allMenu();
-        $readline = readline("Select an option: ");
-=======
 use App\AddIncome;
 use App\Category;
 use App\TotalIncome;
@@ -77,6 +71,5 @@ class App
                     echo "Invalid option. Please select a valid option.\n";
             }
         }
->>>>>>> f1a3cfebc03ea57387163dc6a7f5ecdfc6e2de22
     }
 }

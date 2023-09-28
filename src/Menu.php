@@ -4,15 +4,8 @@ declare(strict_types=1);
 
 namespace App;
 
-
-
 class Menu
 {
-<<<<<<< HEAD
-    const REGISTER = "1. Register\n";
-    const LOGIN = "2.Login\n";
-
-=======
     const ADD_INCOME = "1. Add Income\n";
     const ADD_EXPENSE = "2. Add Expense\n";
     const DISPLAY_TOTAL_INCOME = "3. Display Total Income\n";
@@ -20,13 +13,17 @@ class Menu
     const DISPLAY_SAVINGS_OR_LOSS = "5. Display Savings or Loss\n";
     const DISPLAY_AS_PER_CATEGORY = "6. Display as Per category\n";
     const EXIT = "7. Exit\n";
->>>>>>> f1a3cfebc03ea57387163dc6a7f5ecdfc6e2de22
 
 
     public static function allMenu(): void
     {
         echo "Menu:\n";
-        echo MENU::REGISTER;
-        echo MENU::LOGIN;
+        echo MENU::ADD_INCOME;
+        echo MENU::ADD_EXPENSE;
+        echo MENU::DISPLAY_TOTAL_INCOME;
+        echo Menu::DISPLAY_TOTAL_EXPENSE;
+        echo Menu::DISPLAY_SAVINGS_OR_LOSS;
+        echo Menu::DISPLAY_AS_PER_CATEGORY;
+        echo Menu::EXIT;
     }
 }
